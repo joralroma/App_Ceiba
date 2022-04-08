@@ -1,0 +1,7 @@
+body:
+  search: Buscar
+  name: Nombre
+  status: Estado
+  species: Especie
+  gender: Género
+  viewPublications: VER PUBLICACIONES
