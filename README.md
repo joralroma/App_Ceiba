@@ -1,18 +1,13 @@
-# ceiba
+# Ceiba App
 
-A new Flutter project.
+Trii App es una aplicación para la visualización de un litado de usurios.
 
-## Getting Started
+La aplicación consta de 3 vistas.
 
-This project is a starting point for a Flutter application.
+- [Vista de splah.]
+- [Vista de listado de usuarios.]
+- [Vista de detalles de un usuario y listado de publicaciones.]
 
-A few resources to get you started if this is your first Flutter project:
+La aplicación se adapta al idioma establecido en el dispositivo donde se esté visualizando ([es, en]).
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-# App_Ceiba
-# App_Ceiba
+Autor: Jorge Robles
