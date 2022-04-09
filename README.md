@@ -1,6 +1,6 @@
 # Ceiba App
 
-Trii App es una aplicación para la visualización de un litado de usurios.
+Ceiba App es una aplicación para la visualización de un litado de usurios.
 
 La aplicación consta de 3 vistas.
 
