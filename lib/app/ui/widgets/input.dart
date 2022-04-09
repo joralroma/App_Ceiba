@@ -15,7 +15,7 @@ class InputCeiba extends StatelessWidget {
     this.placeholder = '',
     this.maxLines = 1,
     this.colorText = Colors.white,
-    this.textInputAction = TextInputAction.next,
+    this.textInputAction = TextInputAction.done,
     this.textInputType = TextInputType.text
   }) : super(key: key);
 

@@ -3,4 +3,5 @@ body:
   search: Search users
   viewPublications: VIEW PUBLICATIONS
   usersError: Error loading users
+  publicationsError: Error loading publications
   listEmpty: List is empty

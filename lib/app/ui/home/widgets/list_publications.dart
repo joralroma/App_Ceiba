@@ -1,6 +1,9 @@
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 
+// i18n
+import 'package:ceiba/app/i18n/ceiba_localization.dart';
+
 // Models
 import 'package:ceiba/app/models/user.dart';
 import 'package:ceiba/app/models/error.dart';
@@ -35,10 +38,17 @@ class _ListPublicationsState extends State<ListPublications> {
 
   final HomeController _homeController = Get.find<HomeController>();
 
+  late final CeibaLocalization _ceibaLocalization;
+
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance!.addPostFrameCallback((_) => getListPublications(context)); 
+    WidgetsBinding.instance!.addPostFrameCallback((_) => _initState()); 
+  }
+
+  void _initState() {
+    _ceibaLocalization = CeibaLocalization.of(context);
+    getListPublications();
   }
 
   @override
@@ -51,9 +61,9 @@ class _ListPublicationsState extends State<ListPublications> {
       padding: const EdgeInsets.only(top: 15, right: 10, bottom: 0, left: 10),
       decoration: const BoxDecoration(
         color: Colors.white,
-        borderRadius: BorderRadius.horizontal(
-          right: Radius.circular(18),
-          left: Radius.circular(18)
+        borderRadius: BorderRadius.only(
+          topRight: Radius.circular(18),
+          topLeft: Radius.circular(18)
         )
       ),
       child: Obx(
@@ -69,10 +79,11 @@ class _ListPublicationsState extends State<ListPublications> {
     );
   }
 
-  void getListPublications(BuildContext context) async {
+  void getListPublications() async {
     final CeibaError? error = await _homeController.getListPublications(widget.user.id);
     if(error != null) {
-      CeibaModal.showSnackbar(context, '¡Error!', error.message);
+      Get.back();
+      CeibaModal.showSnackbar(context, '¡Error!', _ceibaLocalization.translate(error.message));
     }
   }
 }

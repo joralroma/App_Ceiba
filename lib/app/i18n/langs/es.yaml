@@ -3,4 +3,5 @@ body:
   search: Buscar usuario
   viewPublications: VER PUBLICACIONES
   usersError: Error al cargar los usuarios
+  publicationsError: Error al cargar las publicaciones
   listEmpty: La lista está vacía

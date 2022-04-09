@@ -1,5 +1,4 @@
 import 'dart:convert';
-import 'dart:developer';
 import 'package:dartz/dartz.dart';
 
 // Models
@@ -55,7 +54,6 @@ class HomeProvider implements HomeResource {
         return Left(error);
       }
     } catch (e) {
-      inspect(e);
       return Left(error);
     }
   }

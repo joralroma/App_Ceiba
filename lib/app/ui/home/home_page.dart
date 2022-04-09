@@ -10,8 +10,8 @@ import 'package:ceiba/app/i18n/ceiba_localization.dart';
 import 'package:ceiba/app/ui/home/home_controller.dart';
 
 // Widgets
-import 'widgets/home_appbar.dart';
 import 'widgets/list_users.dart';
+import 'widgets/home_appbar.dart';
 import 'widgets/home_loader.dart';
 
 // Models

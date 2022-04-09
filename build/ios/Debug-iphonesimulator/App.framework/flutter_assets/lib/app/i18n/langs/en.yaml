@@ -1,6 +1,0 @@
-body:
-  title: Ceiba Users App
-  search: Search users
-  viewPublications: VIEW PUBLICATIONS
-  usersError: Error loading users
-  listEmpty: List is empty
