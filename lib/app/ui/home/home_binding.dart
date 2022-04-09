@@ -1,3 +1,4 @@
+import 'package:ceiba/app/providers/database_provider.dart';
 import 'package:get/get.dart';
 
 // Providers
@@ -12,7 +13,7 @@ class HomeBinding implements Bindings{
   @override
   void dependencies() {
     final HttpProvider _httpProvider = HttpProvider();
-    final HomeProvider _homeProvider = HomeProvider(_httpProvider);
+    final HomeProvider _homeProvider = HomeProvider(_httpProvider, DatabaseProvider.instance);
     Get.put<HomeController>(HomeController(_homeProvider));
   }
 

@@ -10,26 +10,32 @@ import 'package:ceiba/app/models/publication.dart';
 // Resource
 import 'package:ceiba/app/resources/http_resource.dart';
 import 'package:ceiba/app/resources/home_resource.dart';
+import 'package:ceiba/app/resources/database_resource.dart';
 
 class HomeProvider implements HomeResource {
 
   final HttpResource _http;
+  final DatabaseResource _databaseResource;
 
-  HomeProvider(this._http);
+  HomeProvider(this._http, this._databaseResource);
 
   @override
   Future<Either<CeibaError, List<User>>> getListUsers() async {
     final CeibaError error = CeibaError('body.usersError');
     try {
-      const String _url = 'users';
-      final response = await _http.httpGet(_url);
-      final data = json.decode(response.body);
-      if (response.statusCode == 200) {
-        final List<User> _items = User.fromJsonList(data);
-        return Right(_items);
-      } else {
-        return Left(error);
+      List<User> _items = _databaseResource.getListUsers();
+      if(_items.isEmpty) {
+        const String _url = 'users';
+        final response = await _http.httpGet(_url);
+        final data = json.decode(response.body);
+        if (response.statusCode == 200) {
+          _items = User.fromJsonList(data);
+          _databaseResource.saveListUsers(_items);
+        } else {
+          return Left(error);
+        }
       }
+      return Right(_items);
     } catch (e) {
       return Left(error);
     }

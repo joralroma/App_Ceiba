@@ -71,23 +71,6 @@ class LoadingHome extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    _buildLine(width: _responsive.wp(8)),
-                    _buildLine(width: _responsive.wp(5)),
-                  ],
-                ),
-                CircleAvatar(
-                  radius: _responsive.wp(8),
-                  backgroundColor: Colors.white
-                )
-              ],
-            ),
-            const SizedBox(height: 40),
             _buildLine(width: _responsive.wp(50), height: 10),
             const SizedBox(height: 20),
             _buildLine(width: _responsive.wp(70), height: 10),
@@ -109,7 +92,7 @@ class LoadingHome extends StatelessWidget {
     return Container(
       width: width,
       height: height,
-      margin: EdgeInsets.only(bottom: 5),
+      margin: const EdgeInsets.only(bottom: 5),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(5)
@@ -120,7 +103,7 @@ class LoadingHome extends StatelessWidget {
   Widget _buildProduct(Responsive responsive) {
     return Container(
       width: double.infinity,
-      height: 150,
+      height: 110,
       margin: const EdgeInsets.only(top: 30),
       padding: const EdgeInsets.all(10),
       decoration: BoxDecoration(
@@ -130,17 +113,8 @@ class LoadingHome extends StatelessWidget {
           color: Colors.white
         )
       ),
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      child: Column(
         children: [
-          Container(
-            width: 120,
-            height: 120,
-            decoration: BoxDecoration(
-              color: Colors.white,
-              borderRadius: BorderRadius.circular(5),
-            ),
-          ),
           Column(
             mainAxisAlignment: MainAxisAlignment.center,
             crossAxisAlignment: CrossAxisAlignment.start,
@@ -150,9 +124,13 @@ class LoadingHome extends StatelessWidget {
               _buildLine(width: responsive.width - 250),
               const SizedBox(height: 10),
               _buildLine(width: responsive.width - 230),
-              const SizedBox(height: 10),
+              const SizedBox(height: 20),
+              Align(
+                alignment: Alignment.centerRight,
+                child: _buildLine(width: responsive.width - 230)
+              ),
             ],
-          )
+          ),
         ],
       ),
     );

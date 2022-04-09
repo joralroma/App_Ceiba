@@ -9,7 +9,7 @@ class AppBinding implements Bindings{
 
   @override
   void dependencies() {
-    Get.put<DatabaseResource>(DatabaseProvider());
+    Get.put<DatabaseResource>(DatabaseProvider.instance);
   }
 
 }

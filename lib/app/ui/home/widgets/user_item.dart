@@ -1,8 +1,4 @@
-import 'package:get/get.dart';
 import 'package:flutter/material.dart';
-
-// Controller
-import 'package:ceiba/app/ui/home/home_controller.dart';
 
 // i18n
 import 'package:ceiba/app/i18n/ceiba_localization.dart';
@@ -17,7 +13,7 @@ import 'package:ceiba/app/models/user.dart';
 // Utils
 import 'package:ceiba/app/utils/modal.dart';
 
-class UserItem extends GetWidget<HomeController> {
+class UserItem extends StatelessWidget {
 
   const UserItem({
     Key? key,

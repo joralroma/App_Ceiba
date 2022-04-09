@@ -7,9 +7,9 @@ import 'package:ceiba/app/models/input.dart';
 import 'package:ceiba/app/utils/theme.dart';
 import 'package:ceiba/app/utils/responsive.dart';
 
-class InputAsd extends StatelessWidget {
+class InputCeiba extends StatelessWidget {
 
-  const InputAsd({
+  const InputCeiba({
     Key? key,
     required this.model,
     this.placeholder = '',

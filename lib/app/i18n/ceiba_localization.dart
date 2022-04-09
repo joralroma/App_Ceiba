@@ -13,15 +13,17 @@ class CeibaLocalization {
   CeibaLocalization(this.localName);
 
   Future load() async {
-    String yamlString = await rootBundle.loadString('lib/app/i18n/langs/${localName}.yaml');
+    String yamlString = await rootBundle.loadString('lib/app/i18n/langs/$localName.yaml');
     translations = loadYaml(yamlString);
   }
 
   String translate(String key) {
     try {
-      var keys = key.split('.');
+      final List<String> keys = key.split('.');
       dynamic translated = translations;
-      keys.forEach((k) => translated = translated[k]);
+      for (var key in keys) {
+        translated = translated[key];
+      }
       return translated ?? '-';      
     } catch (e) {
       return '-';

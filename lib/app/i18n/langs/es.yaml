@@ -1,7 +1,6 @@
 body:
-  search: Buscar
-  name: Nombre
-  status: Estado
-  species: Especie
-  gender: Género
+  title: Ceiba Users App
+  search: Buscar usuario
   viewPublications: VER PUBLICACIONES
+  usersError: Error al cargar los usuarios
+  listEmpty: La lista está vacía

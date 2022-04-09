@@ -20,6 +20,8 @@ class HomeController extends GetxController {
 
   final RxBool _loadingPublications = RxBool(true);
 
+  List<User> users$ = [];
+
   final RxList<User> _users = RxList([]);
 
   final RxList<Publication> _publications = RxList([]);
@@ -48,18 +50,14 @@ class HomeController extends GetxController {
   bool get loadingPublications => _loadingPublications.value;
   set loadingPublications(bool value) => _loadingPublications.value = value;
 
-  List<User> get users => _users.value;
+  List<User> get users => _users;
   set users(List<User> value) => _users.value = value;
 
-  List<Publication> get publications => _publications.value;
+  List<Publication> get publications => _publications;
   set publications(List<Publication> value) => _publications.value = value;
 
   void _onChangeSearch() {
-    _users.addAll([]);
-  }
-
-  bool filter(User s) {
-    return s.username.toLowerCase().contains(search.text.toLowerCase());
+    users = users$.where((User user) => user.name.toLowerCase().contains(search.text.toLowerCase())).toList();
   }
 
   Future<CeibaError?> getListUsers() async {
@@ -73,7 +71,8 @@ class HomeController extends GetxController {
   }
 
   void _doSuccessGetListUsers(List<User> items) {
-    users = items;
+    users$ = items;
+    _onChangeSearch();
     loadingUsers = false;
   }
 
